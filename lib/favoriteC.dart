@@ -1,90 +1,51 @@
 import 'package:flutter/material.dart';
 
-class ParentWidgetC extends StatefulWidget {
+import 'main.dart';
+
+class firstPage extends StatefulWidget {
   @override
-  _ParentWidgetState createState() => _ParentWidgetState();
+  _firstPageState createState() => _firstPageState();
 }
 
-class _ParentWidgetState extends State<ParentWidgetC> {
-  bool _active = false;
-
-  void _handleTapboxChanged(bool newValue) {
-    setState(() {
-      _active = newValue;
-    });
-  }
-
+class _firstPageState extends State<firstPage> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: TapboxC(
-        active: _active,
-        onChanged: _handleTapboxChanged,
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.pink[100],
+        title: Text("Elemental Burst"),
       ),
-    );
-  }
-}
-
-//----------------------------- TapboxC ------------------------------
-
-class TapboxC extends StatefulWidget {
-  TapboxC({Key key, this.active: false, @required this.onChanged})
-      : super(key: key);
-
-  final bool active;
-  final ValueChanged<bool> onChanged;
-
-  _TapboxCState createState() => _TapboxCState();
-}
-
-class _TapboxCState extends State<TapboxC> {
-  bool _highlight = false;
-
-  void _handleTapDown(TapDownDetails details) {
-    setState(() {
-      _highlight = true;
-    });
-  }
-
-  void _handleTapUp(TapUpDetails details) {
-    setState(() {
-      _highlight = false;
-    });
-  }
-
-  void _handleTapCancel() {
-    setState(() {
-      _highlight = false;
-    });
-  }
-
-  void _handleTap() {
-    widget.onChanged(!widget.active);
-  }
-
-  Widget build(BuildContext context) {
-    // This example adds a green border on tap down.
-    // On tap up, the square changes to the opposite state.
-    return GestureDetector(
-      onTapDown: _handleTapDown, // Handle the tap events in the order that
-      onTapUp: _handleTapUp, // they occur: down, up, tap, cancel
-      onTap: _handleTap,
-      onTapCancel: _handleTapCancel,
-      child: Container(
-        child: Center(
-          child: Text(widget.active ? 'Active' : 'Inactive',
-              style: TextStyle(fontSize: 32.0, color: Colors.white)),
-        ),
-        width: 200.0,
-        height: 200.0,
-        decoration: BoxDecoration(
-          color: widget.active ? Colors.lightGreen[700] : Colors.grey[600],
-          border: _highlight
-              ? Border.all(
-                  color: Colors.teal[700],
-                  width: 10.0,
-                )
-              : null,
+      backgroundColor: Colors.white,
+      body: SingleChildScrollView(
+        child: Stack(
+          children: [
+            Container(
+              child: Column(children: <Widget>[
+                Image.asset(
+                  'images/tenor7.gif',
+                  height: 300,
+                ),
+              ]),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 270, left: 30, right: 30),
+              child: Column(
+                children: [
+                  Text(""),
+                  Text("Havor: Obliteration"),
+                  Text(""),
+                  Text(
+                      "Performs different attacks based on what stance Tartaglia is in when casting."
+                      "Ranged Stance: Flash of Havoc"
+                      "Swiftly fires a Hydro-imbued magic arrow, dealing AoE Hydro DMG and applying the Riptide status."
+                      "Returns a portion of its Energy Cost after use."
+                      "Melee Stance: Light Obliteration"
+                      "Performs a slash with a large AoE, dealing massive Hydro DMG to all surrounding opponents, which triggers Riptide Blast."),
+                  Text(""),FavoriteWidget(),
+                ],
+              ),
+            )
+          ],
         ),
       ),
     );

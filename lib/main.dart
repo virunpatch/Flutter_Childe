@@ -53,14 +53,14 @@ class _MyHomePageState extends State<MyHomePage> {
               Container(
                 padding: const EdgeInsets.only(bottom: 8),
                 child: Text(
-                  'Sett The Boss',
+                  'Tartaglia Overview',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
               Text(
-                'Game,MOBA',
+                'No. 11 of The Harbingers, also known as "Childe". His name is highly feared on the battlefield.',
                 style: TextStyle(
                   color: Colors.grey[500],
                 ),
@@ -77,9 +77,8 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget textSection = Container(
     padding: const EdgeInsets.all(32),
     child: Text(
-      'A leader of Ionia’s growing criminal underworld, Sett rose to prominence in the wake of the war with Noxus.'
-      'Though he began as a humble challenger in the fighting pits of Navori, he quickly gained notoriety for his savage strength, and his ability to take seemingly endless amounts of punishment.'
-      ' Now, having climbed through the ranks of local combatants, Sett has muscled to the top, reigning over the pits he once fought in.',
+      'If Tartaglia is in Foul Legacy: Raging Tides Melee Stance, triggers Riptide Slash against opponents on the field affected by Riptide every 4s, otherwise, triggers Riptide Flash.'
+      'Riptide Slashes and Riptide Flashes triggered by this Constellation effect are not subject to the time intervals that would typically apply to these two Riptide effects, nor do they have any effect on those time intervals.',
       softWrap: true,
     ),
   );
@@ -98,35 +97,35 @@ class _MyHomePageState extends State<MyHomePage> {
                   MaterialPageRoute(builder: (context) => TapboxA()),
                 );
               },
-              child: _buildButtonColumn(color, Icons.home_rounded, 'หน้าหลัก')),
+              child: _buildButtonColumn(color, Icons.home_rounded, 'Normal Attack')),
           GestureDetector(
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => ParentWidget()),
+                  MaterialPageRoute(builder: (context) => firstPage3()),
                 );
               },
-              child: _buildButtonColumn(color, Icons.favorite, 'ถูกใจ')),
+              child: _buildButtonColumn(color, Icons.favorite, 'Elemental Skill')),
           GestureDetector(
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => ParentWidgetC()),
+                  MaterialPageRoute(builder: (context) => firstPage()),
                 );
               },
-              child: _buildButtonColumn(color, Icons.share, 'แบ่งปัน')),
+              child: _buildButtonColumn(color, Icons.share, 'Elemental Burst')),
         ],
       ),
     );
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Sett The Boss'),
+        title: Text('Tartaglia (Childe)'),
       ),
       body: ListView(
         children: <Widget>[
           Image.asset(
-            'images/sett.jpg',
+            "images/tenor2.gif",
             width: 600,
             height: 240,
             fit: BoxFit.cover,
@@ -165,6 +164,8 @@ class _MyHomePageState extends State<MyHomePage> {
       ],
     );
   }
+
+  firstPageState3() {}
 }
 
 class FavoriteWidget extends StatefulWidget {

@@ -46,6 +46,13 @@ flutter:
   uses-material-design: true
   assets: 
     - images/sett.jpg
+    - images/tenor2.gif
+    - images/tenor.gif
+    - images/tenor3.gif
+    - images/tenor4.gif
+    - images/tenor5.gif
+    - images/tenor6.gif
+    - images/tenor7.gif
 
   # To add assets to your application, add an assets section, like this:
   # assets:

@@ -1,57 +1,50 @@
 import 'package:flutter/material.dart';
 
-class ParentWidget extends StatefulWidget {
+import 'main.dart';
+
+
+class firstPage3 extends StatefulWidget {
   @override
-  _ParentWidgetState createState() => _ParentWidgetState();
+  _firstPageState3 createState() => _firstPageState3();
 }
 
-class _ParentWidgetState extends State<ParentWidget> {
-  bool _active = false;
-
-  void _handleTapboxChanged(bool newValue) {
-    setState(() {
-      _active = newValue;
-    });
-  }
-
+class _firstPageState3 extends State<firstPage3> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: TapboxB(
-        active: _active,
-        onChanged: _handleTapboxChanged,
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.pink[100],
+        title: Text("Elemental Skill"),
       ),
-    );
-  }
-}
-
-//------------------------- TapboxB ----------------------------------
-
-class TapboxB extends StatelessWidget {
-  TapboxB({Key key, this.active: false, @required this.onChanged})
-      : super(key: key);
-
-  final bool active;
-  final ValueChanged<bool> onChanged;
-
-  void _handleTap() {
-    onChanged(!active);
-  }
-
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: _handleTap,
-      child: Container(
-        child: Center(
-          child: Text(
-            active ? 'Active' : 'Inactive',
-            style: TextStyle(fontSize: 32.0, color: Colors.white),
-          ),
-        ),
-        width: 200.0,
-        height: 200.0,
-        decoration: BoxDecoration(
-          color: active ? Colors.lightGreen[700] : Colors.grey[600],
+      backgroundColor: Colors.white,
+      body: SingleChildScrollView(
+        child: Stack(
+          children: [
+            Container(
+              child: Column(children: <Widget>[
+                Image.asset(
+                  'images/tenor4.gif',
+                  height: 300,
+                ),
+              ]),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 270, left: 30, right: 30),
+              child: Column(
+                children: [
+                  Text(""),
+                  Text("Foul Legacy: Raging Tide"),
+                  Text(""),
+                  Text(
+                      "Unleashes a set of weaponry made of pure water, dealing Hydro DMG to surrounding opponents and entering a Melee Stance."
+                      "In this Stance, Tartaglia's Normal and Charged Attacks change as follows:"),
+                  Text("Normal Attack: Performs up to 6 consecutive Hydro strikes."
+                      "Charged Attack: Consumes a certain amount of Stamina to unleash a cross slash, dealing Hydro DMG."),
+                  Text(""),FavoriteWidget(),
+                ],
+              ),
+            )
+          ],
         ),
       ),
     );
